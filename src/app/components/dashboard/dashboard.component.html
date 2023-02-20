@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+<div class="container mt-2 text-center">
+    <h2>List Clients</h2>
+   <button class="btn btn-primary " (click)="addClient()"> <i class="bi bi-plus-circle" ></i> Add client</button>
+   <button class="btn btn-primary mx-2" (click)="repairs()">All repairs</button>
+    
+   <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listClient">
+            <td >{{ item.id }}</td>
+            <td *ngIf="item.id" role="button"  (click)="phoneList(item.id)">{{ item.name }}</td>
+          </tr>
+         
+        </tbody>
+      </table>
+</div>

@@ -1,0 +1,62 @@
+<div class="d-flex flex-column align-items-center p-5">
+    <div class="body">
+
+        <h3 class="mb-2">Add Phone</h3>
+        <div class="form-floating mb-3 mt-3">
+            <input type="text" [(ngModel)]="namePhone" autocomplete="false" class="form-control"
+                placeholder="Name phone">
+            <label>Name phone</label>
+        </div>
+        <div class="form-floating mb-3 mt-3">
+            <input type="number" [(ngModel)]="number" autocomplete="false" class="form-control"
+                placeholder="Number phone">
+            <label>Number</label>
+        </div>
+
+        <div class="d-grid gap-2">
+            <button type="button" class="btn btn-primary btn-lg" (click)="addClient()">Add Phone</button>
+        </div>
+        <!--  <p class="mt-3">No tienes cuenta? <a routerLink="/signIn">Registrar</a></p> -->
+    </div>
+    <app-spinner *ngIf="loading"></app-spinner>
+
+
+    <!-- PHONE CLientList -->
+    <div class="container mt-2 text-center">
+        <h2>List phone</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Number</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listPhone">
+                    <td>{{ item.id }}</td>
+                    <td *ngIf="item.id" role="button" (click)="reparation(item.id)">{{ item.namePhone }}</td>
+                    <td>{{ item.number }}</td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="container mt-2 text-center">
+        <h2>List Reparation</h2>
+
+        <ul  class="list-group">
+            <li *ngFor="let rep of reparationPhone">
+                <p class="list-group-item"  *ngFor="let el of rep">
+                    <span class="m-2">{{el.reparation}}</span>
+                    <span>PHONE_ID: {{el.phoneId}}</span>
+                </p>
+            </li>
+        </ul>
+
+    </div>
+
+</div>
